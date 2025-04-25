@@ -1,0 +1,31 @@
+<script>
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('canvas');
+  const context = canvas.getContext('2d');
+
+  // Webcam starten
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => { video.srcObject = stream; });
+
+  // Button klick -> Bild aufnehmen -> API senden
+  document.getElementById('snap').addEventListener('click', () => {
+    context.drawImage(video, 0, 0, 320, 240);
+    const imageData = canvas.toDataURL('image/png');
+
+    fetch('https://twinfindai.github.io/TwinFindAI-Landingpage/scan', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer DEIN_API_KEY' // wenn benötigt
+      },
+      body: JSON.stringify({ image: imageData })
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert(`Dein Zwilling: ${data.match.name}, Ähnlichkeit: ${data.match.score}%`);
+    })
+    .catch(err => {
+      console.error('Fehler beim Scannen:', err);
+    });
+  });
+</script>
