@@ -206,6 +206,38 @@
   </style>
 </head>
 <body>
+  <!-- index.html -->
+<video id="video" width="300" height="225" autoplay></video>
+<br>
+<button id="snap">Foto machen</button>
+<canvas id="canvas" width="300" height="225" style="display:none;"></canvas>
+
+<script>
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const snap = document.getElementById('snap');
+
+// Kamera aktivieren
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(stream => { video.srcObject = stream; })
+  .catch(err => console.error("Kamerazugriff fehlgeschlagen:", err));
+
+// Bild aufnehmen und senden
+snap.addEventListener('click', () => {
+  const context = canvas.getContext('2d');
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  const imageData = canvas.toDataURL('image/png');
+
+  fetch('http://localhost:5000/scan', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ image: imageData })
+  })
+  .then(res => res.json())
+  .then(data => console.log('Erkennungsergebnis:', data))
+  .catch(err => console.error('Fehler beim Senden:', err));
+});
+</script>
   
   <script>
   const video = document.getElementById('video');
