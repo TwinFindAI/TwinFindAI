@@ -1,0 +1,222 @@
+/* CSS-Variablen für Farbschema */
+:root {
+  --color-t: #1BC2D8;
+  --color-f: #56E63E;
+  --color-text: #545454;
+  --color-bg: #f8f9fa; /* Hellgrauer Hintergrund */
+  --color-white: #ffffff;
+}
+
+/* Allgemeine Stile */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+}
+
+/* Zentrale Container-Klasse für Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Link-Stile */
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  background-color: var(--color-white);
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo img {
+  max-height: 50px;
+}
+
+/* Sprachwechsel-Button */
+.lang-btn {
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 5px 10px;
+  border: 1px solid var(--color-text);
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  background-color: var(--color-t);
+  color: var(--color-white);
+  border-color: var(--color-t);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hero-Bereich */
+#hero {
+  background-color: var(--color-white);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+#hero h1 {
+  font-size: 2.0em;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Markenfarben für erste Buchstaben (T und F) */
+.brand-text {
+  color: var(--color-text);
+}
+
+.brand-text .brand-T {
+  color: var(--color-t);
+}
+
+.brand-text .brand-F {
+  color: var(--color-f);
+}
+
+#hero p {
+  font-size: 1.0em;
+  margin-bottom: 30px;
+  font-style: arial;
+}
+
+/* Über TwinFindAI */
+#about {
+  background-color: var(--color-bg);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#about h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+#about p {
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 1.1em;
+  line-height: 1.2;
+}
+
+/* Newsletter-Sektion */
+#newsletter {
+  background-color: var(--color-white);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#newsletter h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+#newsletter p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+#newsletter form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+#newsletter input[type="text"],
+#newsletter input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+#newsletter button {
+  padding: 10px 20px;
+  background-color: var(--color-t);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#newsletter button:hover {
+  background-color: var(--color-text);
+}
+
+/* Social Media / Teilen */
+#share {
+  background-color: var(--color-bg);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#share h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  font-size: 1.5em;
+  margin: 0 10px;
+  color: var(--color-text);
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--color-t);
+}
+
+/* Investoren-Sektion */
+#investors {
+  background-color: var(--color-white);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#investors h2 {
+  font-size: 1.6em;
+  margin-bottom: 15px;
+}
+
+#investors p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1em;
+  line-height: 1.2;
+}
+
+/* Fußzeile */
+footer {
+  background-color: var(--color-bg);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
