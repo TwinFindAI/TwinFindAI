@@ -275,7 +275,7 @@ snap.addEventListener('click', () => {
       faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
       faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL)
     ]);
-    console.log('Modelle geladen');
+    console.log('✅ Modelle geladen');
   }
 
   async function handleImageUpload(event) {
@@ -288,20 +288,31 @@ snap.addEventListener('click', () => {
     display.appendChild(image);
     uploadedImage = image;
 
-    document.getElementById('scan-btn').disabled = false; // Button aktivieren
+    document.getElementById('scan-btn').disabled = false;
+    console.log('📸 Bild hochgeladen');
   }
 
   async function startTwinMatching() {
-    if (!uploadedImage) return;
-
-    detections = await faceapi.detectSingleFace(uploadedImage).withFaceLandmarks().withFaceDescriptor();
-
-    if (!detections) {
-      alert('Kein Gesicht erkannt.');
+    if (!uploadedImage) {
+      console.log('⚠️ Kein Bild gefunden');
       return;
     }
 
-    // Dummy-Zwillinge simulieren
+    console.log('🔍 Starte Gesichtserkennung...');
+    detections = await faceapi
+      .detectSingleFace(uploadedImage, new faceapi.TinyFaceDetectorOptions())
+      .withFaceLandmarks()
+      .withFaceDescriptor();
+
+    if (!detections) {
+      alert('❌ Kein Gesicht erkannt. Bitte anderes Bild probieren.');
+      console.log('❌ Gesichtserkennung fehlgeschlagen.');
+      return;
+    }
+
+    console.log('✅ Gesicht erkannt:', detections);
+
+    // Dummy-Daten
     const labeledDescriptors = [
       new faceapi.LabeledFaceDescriptors('Zwilling A', [new Float32Array(128).fill(0.1)]),
       new faceapi.LabeledFaceDescriptors('Zwilling B', [new Float32Array(128).fill(-0.1)]),
@@ -309,20 +320,12 @@ snap.addEventListener('click', () => {
 
     const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.6);
     const bestMatch = faceMatcher.findBestMatch(detections.descriptor);
-    alert(`Dein Twin: ${bestMatch.toString()}`);
+    alert(`🎯 Dein Twin: ${bestMatch.toString()}`);
   }
 
   window.addEventListener('load', loadModels);
 </script>
 
-<!-- Upload-Bereich mit Button -->
-<section id="scan" class="container" style="text-align: center; margin-top: 30px;">
-  <h2>Gesicht hochladen & Zwilling finden</h2>
-  <input type="file" accept="image/*" onchange="handleImageUpload(event)">
-  <br><br>
-  <button id="scan-btn" onclick="startTwinMatching()" enable>Scan starten</button>
-  <div id="image-display" style="margin-top: 20px;"></div>
-</section>
     
     <!-- Über TwinFindAI / Kurzbeschreibung -->
     <section id="about" class="container">
