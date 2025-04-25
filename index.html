@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TwinFindAI nutzt KI, um deinen digitalen Zwilling zu finden. Erfahren Sie mehr auf unserer Landingpage.">
+  <title>TwinFindAI Landingpage</title>
+  <!-- Google Fonts - Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome für Social-Media-Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* CSS-Variablen für Farbschema */
+    :root {
+      --color-t: #1BC2D8;
+      --color-f: #56E63E;
+      --color-text: #545454;
+      --color-bg: #f8f9fa; /* Hellgrauer Hintergrund */
+      --color-white: #ffffff;
+    }
+    /* Allgemeine Stile */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.6;
+    }
+    /* Zentrale Container-Klasse für Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* Link-Stile */
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Header */
+    header {
+      background-color: var(--color-white);
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .logo img {
+      max-height: 50px;
+    }
+    /* Sprachwechsel-Button */
+    .lang-btn {
+      font-weight: 600;
+      color: var(--color-text);
+      padding: 5px 10px;
+      border: 1px solid var(--color-text);
+      border-radius: 4px;
+      background: none;
+      cursor: pointer;
+    }
+    .lang-btn:hover {
+      background-color: var(--color-t);
+      color: var(--color-white);
+      border-color: var(--color-t);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /* Hero-Bereich */
+    #hero {
+      background-color: var(--color-white);
+      text-align: center;
+      padding: 60px 20px;
+    }
+    #hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    /* Markenfarben für erste Buchstaben (T und F) */
+    .brand-text {
+      color: var(--color-text);
+    }
+    .brand-text .brand-T {
+      color: var(--color-t);
+    }
+    .brand-text .brand-F {
+      color: var(--color-f);
+    }
+    #hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+    /* Über TwinFindAI */
+    #about {
+      background-color: var(--color-bg);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    #about h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    #about p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    /* Newsletter-Sektion */
+    #newsletter {
+      background-color: var(--color-white);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    #newsletter h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    #newsletter p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    #newsletter form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    #newsletter input[type="text"],
+    #newsletter input[type="email"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      flex: 1 1 200px;
+      min-width: 200px;
+    }
+    #newsletter button {
+      padding: 10px 20px;
+      background-color: var(--color-t);
+      color: var(--color-white);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    #newsletter button:hover {
+      background-color: var(--color-text);
+    }
+    /* Social Media / Teilen */
+    #share {
+      background-color: var(--color-bg);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    #share h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    .social-icons {
+      margin-top: 20px;
+    }
+    .social-icons a {
+      font-size: 1.5em;
+      margin: 0 10px;
+      color: var(--color-text);
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: var(--color-t);
+    }
+    /* Investoren-Sektion */
+    #investors {
+      background-color: var(--color-white);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    #investors h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    #investors p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    /* Fußzeile */
+    footer {
+      background-color: var(--color-bg);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header mit Logo und Sprachwechsel -->
+  <header>
+    <div class="container">
+      <!-- Logo (transparent, vom Nutzer einzubinden) -->
+      <div class="logo">
+        <img src="logo.png" alt="Logo von TwinFindAI">
+      </div>
+      <nav>
+        <a href="#" class="lang-btn" title="Zur englischen Version wechseln">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero-Bereich / Willkommenstext -->
+    <section id="hero" class="container">
+      <h1>Willkommen bei <span class="brand-text"><span class="brand-T">T</span>win<span class="brand-F">F</span>indAI</span></h1>
+      <p>Finde deinen Zwilling überall auf der Welt.</p>
+    </section>
+
+    <!-- Über TwinFindAI / Kurzbeschreibung -->
+    <section id="about" class="container">
+      <h2>Über TwinFindAI</h2>
+      <p>TwinFindAI ist eine innovative KI-basierte Plattform, die Nutzern hilft, ihren Doppelgänger oder ein „Seelen-Zwilling“ zu finden. Unsere App analysiert Interessen und Persönlichkeitsmerkmale, um weltweit Menschen mit ähnlichen Eigenschaften miteinander zu verbinden. Egal, ob Sie jemanden suchen, der Ihre Leidenschaften teilt oder einen faszinierenden Blickwinkel auf die Welt bietet – TwinFindAI findet Ihr perfektes Match.</p>
+    </section>
+
+    <!-- Newsletter-Sektion -->
+    <section id="newsletter" class="container">
+      <h2>Newsletter</h2>
+      <p>Bleiben Sie auf dem Laufenden! Abonnieren Sie unseren Newsletter, um Neuigkeiten und Updates von TwinFindAI zu erhalten.</p>
+      <form id="newsletter-form">
+        <input type="text" name="name" placeholder="Ihr Name">
+        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+        <button type="submit">Abonnieren</button>
+      </form>
+    </section>
+
+    <!-- Social Media / Teilen -->
+    <section id="share" class="container">
+      <h2>Folgen und Teilen</h2>
+      <p>Folgen Sie TwinFindAI in den sozialen Medien oder teilen Sie unsere Seite:</p>
+      <div class="social-icons">
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </section>
+
+    <!-- Investoren-Sektion -->
+    <section id="investors" class="container">
+      <h2>Investorenbereich</h2>
+      <p>Für Investoren haben wir ein ausführliches Pitchdeck vorbereitet. Sie können das Pitchdeck <a href="pitchdeck.pdf">hier herunterladen</a>. Bei weiteren Fragen erreichen Sie uns per E-Mail unter <a href="mailto:invest@twinfind.ai">invest@twinfind.ai</a>.</p>
+    </section>
+  </main>
+
+  <!-- Fußzeile -->
+  <footer>
+    <p>&copy; 2025 TwinFindAI. Alle Rechte vorbehalten.</p>
+  </footer>
+</body>
+</html>
