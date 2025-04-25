@@ -317,40 +317,6 @@ Finde deinen Zwilling. Weltweit.</p>
     </section>
   </main>
 
-  <script>
-  const video = document.getElementById('video');
-  const canvas = document.getElementById('canvas');
-  const context = canvas.getContext('2d');
-
-  <!-- Webcam starten  -->
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then((stream) => {
-      video.srcObject = stream;
-    });
-
-  <!-- Foto aufnehmen und an Backend senden  -->
-  document.getElementById('snap').addEventListener('click', () => {
-    context.drawImage(video, 0, 0, 320, 240);
-    const imageData = canvas.toDataURL('image/png');
-
-    fetch('http://localhost:5000/scan', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ image: imageData })
-    })
-    .then(res => res.json())
-    .then(data => {
-      alert(`Ähnlichkeitswert: ${data.similarity}%`);
-    })
-    .catch(err => {
-      console.error('Fehler beim Scan:', err);
-    });
-  });
-</script>
-
-
   <!-- Fußzeile -->
   <footer>
     <p>&copy; 2025 TwinFindAI. Alle Rechte vorbehalten.</p>
