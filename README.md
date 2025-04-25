@@ -39,9 +39,9 @@ Technologien
 Nutzung / Entwicklung
 
 </header>
-
+Ich suche derzeit nach Partnern und/oder Co-Foundern mit Erfahrung in KI, App- und Business-Entwicklung, um das Wachstum von TwinFind-AI zu beschleunigen. Interessierte können sich gern mein Pitchdeck hier herunterladen: Pitchdeck herunterladen.
 <footer>
 
-Ich suche derzeit nach Partnern und/oder Co-Foundern, die Erfahrung in den Bereichen KI, App-Entwicklung und Business-Entwicklung mitbringen, um das Wachstum von TwinFind-AI zu beschleunigen.
+
 
 </footer>
