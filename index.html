@@ -261,7 +261,70 @@ snap.addEventListener('click', () => {
 });
 </script>
 
-    <script>
+    <!-- Face API.js laden -->
+<script defer src="https://unpkg.com/face-api.js"></script>
+
+<script>
+  let uploadedImage;
+  let detections;
+
+  async function loadModels() {
+    const MODEL_URL = 'https://cdn.jsdelivr.net/npm/face-api.js/models';
+    await Promise.all([
+      faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
+      faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
+      faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL)
+    ]);
+    console.log('Modelle geladen');
+  }
+
+  async function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const image = await faceapi.bufferToImage(file);
+    const display = document.getElementById('image-display');
+    display.innerHTML = '';
+    display.appendChild(image);
+    uploadedImage = image;
+
+    document.getElementById('scan-btn').disabled = false; // Button aktivieren
+  }
+
+  async function startTwinMatching() {
+    if (!uploadedImage) return;
+
+    detections = await faceapi.detectSingleFace(uploadedImage).withFaceLandmarks().withFaceDescriptor();
+
+    if (!detections) {
+      alert('Kein Gesicht erkannt.');
+      return;
+    }
+
+    // Dummy-Zwillinge simulieren
+    const labeledDescriptors = [
+      new faceapi.LabeledFaceDescriptors('Zwilling A', [new Float32Array(128).fill(0.1)]),
+      new faceapi.LabeledFaceDescriptors('Zwilling B', [new Float32Array(128).fill(-0.1)]),
+    ];
+
+    const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.6);
+    const bestMatch = faceMatcher.findBestMatch(detections.descriptor);
+    alert(`Dein Twin: ${bestMatch.toString()}`);
+  }
+
+  window.addEventListener('load', loadModels);
+</script>
+
+<!-- Upload-Bereich mit Button -->
+<section id="scan" class="container" style="text-align: center; margin-top: 30px;">
+  <h2>Gesicht hochladen & Zwilling finden</h2>
+  <input type="file" accept="image/*" onchange="handleImageUpload(event)">
+  <br><br>
+  <button id="scan-btn" onclick="startTwinMatching()" disabled>Scan starten</button>
+  <div id="image-display" style="margin-top: 20px;"></div>
+</section>
+
+<script>
   let uploadedImage;
   let detections;
 
