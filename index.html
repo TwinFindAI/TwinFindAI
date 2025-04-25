@@ -48,7 +48,7 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .logo img {
-      max-height: 170px;
+      max-height: 200px;
     }
     /* Sprachwechsel-Button */
     .lang-btn {
@@ -206,21 +206,22 @@
   </style>
 </head>
 <body>
+  
   <script>
   const video = document.getElementById('video');
   const canvas = document.getElementById('canvas');
   const context = canvas.getContext('2d');
 
-  // Webcam starten
+    <!-- Webcam starten -->
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => { video.srcObject = stream; });
 
-  // Button klick -> Bild aufnehmen -> API senden
+    <!-- Button klick -> Bild aufnehmen -> API senden -->
   document.getElementById('snap').addEventListener('click', () => {
     context.drawImage(video, 0, 0, 320, 240);
     const imageData = canvas.toDataURL('image/png');
 
-    fetch('https://api.twinfind.ai/scan', {
+    fetch('https://twinfindai.github.io/TwinFindAI-Landingpage/scan', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -274,14 +275,13 @@ Deine Daten sind geschützt – unsere Technologie ist bereit für die ganze Wel
 
     <!-- Facescanner -->
     <section id="face-scanner" class="container">
-  <h2>Scanne dein Gesicht</h2>
+  <h3>Scanne dein Gesicht</h3>
   <video id="video" width="320" height="240" autoplay></video>
   <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
   <br>
   <button id="snap">Gesicht scannen</button>
     </section>
-
-
+    
     <!-- Newsletter-Sektion -->
     <section id="newsletter" class="container">
       <h2>Newsletter</h2>
