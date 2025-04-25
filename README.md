@@ -4,6 +4,8 @@ TwinFindAI – Finde deinen Zwilling weltweit
 
 Willkommen bei TwinFindAI – der Plattform, die mithilfe modernster KI und Gesichtserkennung deinen digitalen Zwilling findet!
 
+Ich bin die Gründerin von TwinFind-AI, einer App, die KI-basierte Gesichtserkennung nutzt, um Menschen miteinander zu verbinden. Meine Vision ist es, eine Plattform zu schaffen, die es Nutzern weltweit ermöglicht, Doppelgänger und potenzielle Verwandte zu entdecken. Mit einem Hintergrund in Business und einer Leidenschaft für technologische Innovationen möchte ich TwinFind-AI als führende Social-Networking-App etablieren. Mein Fokus liegt darauf, die Nutzererfahrung stetig zu verbessern und das Unternehmen zu skalieren, um langfristig eine starke Marktposition zu erreichen.
+
 Projektübersicht
 
 TwinFindAI kombiniert künstliche Intelligenz, Gamification und Community, um aus einem simplen Selfie ein virales Erlebnis zu machen:
