@@ -261,6 +261,59 @@ snap.addEventListener('click', () => {
 });
 </script>
 
+    <!-- Face API.js laden -->
+<script defer src="https://unpkg.com/face-api.js"></script>
+
+<!-- Gesichtserkennung und Twin-Matching -->
+<script>
+  // Modelle laden
+  async function loadModels() {
+    const MODEL_URL = 'https://cdn.jsdelivr.net/npm/face-api.js/models';
+    await Promise.all([
+      faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
+      faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
+      faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL)
+    ]);
+    console.log('Modelle geladen');
+  }
+
+  // Bild hochladen und Twin finden
+  async function handleImageUpload(event) {
+    const image = await faceapi.bufferToImage(event.target.files[0]);
+    const display = document.getElementById('image-display');
+    display.innerHTML = '';
+    display.appendChild(image);
+
+    const detections = await faceapi.detectSingleFace(image).withFaceLandmarks().withFaceDescriptor();
+
+    if (!detections) {
+      alert('Kein Gesicht erkannt.');
+      return;
+    }
+
+    // Beispiel: ein paar gespeicherte "Zwillinge" (Embeddings) simulieren
+    const labeledDescriptors = [
+      new faceapi.LabeledFaceDescriptors('Zwilling 1', [new Float32Array(128).fill(0.1)]),
+      new faceapi.LabeledFaceDescriptors('Zwilling 2', [new Float32Array(128).fill(-0.1)]),
+    ];
+
+    const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.6);
+    const bestMatch = faceMatcher.findBestMatch(detections.descriptor);
+    alert(`Dein Zwilling: ${bestMatch.toString()}`);
+  }
+
+  // Modelle beim Laden der Seite starten
+  window.addEventListener('load', loadModels);
+</script>
+
+<!-- Upload-Bereich im HTML-Body -->
+<section id="scan" class="container" style="text-align: center; margin-top: 30px;">
+  <h2>Gesicht hochladen & Zwilling finden</h2>
+  <input type="file" accept="image/*" onchange="handleImageUpload(event)">
+  <div id="image-display" style="margin-top: 20px;"></div>
+</section>
+
+
     <!-- Über TwinFindAI / Kurzbeschreibung -->
     <section id="about" class="container">
       <h2>Über TwinFindAI</h2>
