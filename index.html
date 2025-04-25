@@ -240,6 +240,16 @@ Kostenlos starten, Spaß haben – und mit Premium-Funktionen, In-App-Goodies un
 Deine Daten sind geschützt – unsere Technologie ist bereit für die ganze Welt. <br>Und du?</br</br></p>
     </section>
 
+    <!-- Facescanner -->
+    <section id="face-scanner" class="container">
+  <h2>Scanne dein Gesicht</h2>
+  <video id="video" width="320" height="240" autoplay></video>
+  <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+  <br>
+  <button id="snap">Gesicht scannen</button>
+    </section>
+
+
     <!-- Newsletter-Sektion -->
     <section id="newsletter" class="container">
       <h2>Newsletter</h2>
@@ -259,7 +269,7 @@ Finde deinen Zwilling. Weltweit.</p>
 
     <!-- Social Media / Teilen -->
     <section id="share" class="container">
-      <h2>Folgen und Teilen</h2>
+      <h3>Folgen und Teilen</h3>
       <p>Folgen Sie TwinFindAI in den sozialen Medien oder teilen Sie unsere Seite:</p>
       <div class="social-icons">
         <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
@@ -274,6 +284,40 @@ Finde deinen Zwilling. Weltweit.</p>
       <p>Für Investoren haben wir ein ausführliches Pitchdeck vorbereitet. Sie können das Pitchdeck <a href="pitchdeck.pdf">hier herunterladen</a>. Bei weiteren Fragen erreichen Sie uns per E-Mail unter <a href="mailto:invest@twinfind.ai">invest@twinfind.ai</a>.</p>
     </section>
   </main>
+
+  <script>
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('canvas');
+  const context = canvas.getContext('2d');
+
+  <!-- Webcam starten  -->
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then((stream) => {
+      video.srcObject = stream;
+    });
+
+  <!-- Foto aufnehmen und an Backend senden  -->
+  document.getElementById('snap').addEventListener('click', () => {
+    context.drawImage(video, 0, 0, 320, 240);
+    const imageData = canvas.toDataURL('image/png');
+
+    fetch('http://localhost:5000/scan', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ image: imageData })
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert(`Ähnlichkeitswert: ${data.similarity}%`);
+    })
+    .catch(err => {
+      console.error('Fehler beim Scan:', err);
+    });
+  });
+</script>
+
 
   <!-- Fußzeile -->
   <footer>
