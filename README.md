@@ -1,10 +1,13 @@
 <header>
 
-TwinFindAI – Finde deinen Zwilling weltweit
+TwinFindAI – Find your Twin anywhere in the World.
 
 Willkommen bei TwinFindAI – der Plattform, die mithilfe modernster KI und Gesichtserkennung deinen digitalen Zwilling findet!
 
-Ich bin die Gründerin von TwinFind-AI, einer App, die KI-basierte Gesichtserkennung nutzt, um Menschen miteinander zu verbinden. Meine Vision ist es, eine Plattform zu schaffen, die es Nutzern weltweit ermöglicht, Doppelgänger und potenzielle Verwandte zu entdecken. Mit einem Hintergrund in Business und einer Leidenschaft für technologische Innovationen möchte ich TwinFind-AI als führende Social-Networking-App etablieren. Mein Fokus liegt darauf, die Nutzererfahrung stetig zu verbessern und das Unternehmen zu skalieren, um langfristig eine starke Marktposition zu erreichen.
+Ich bin die Gründerin von TwinFindAI, einer App, die KI-basierte Gesichtserkennung nutzt, um Menschen miteinander zu verbinden.
+Meine Vision ist es, eine Plattform zu schaffen, die es Nutzern weltweit ermöglicht, Doppelgänger und potenzielle Verwandte zu entdecken.
+Mit einem Hintergrund in Business und einer Leidenschaft für technologische Innovationen möchte ich TwinFind-AI als führende Social-Networking-App etablieren.
+Mein Fokus liegt darauf, die Nutzererfahrung stetig zu verbessern und das Unternehmen zu skalieren, um langfristig eine starke Marktposition zu erreichen.
 
 Projektübersicht
 
@@ -22,11 +25,11 @@ Live-Demo
 
 Features
 
-- Gesichtserkennung** direkt im Browser (`face-api.js`)
-- Twin-Matching-Simulation** mit Dummy-Daten (via `faceMatcher`)
-- Newsletter-Formular**
-- Social Media Links** (LinkedIn, Instagram, X)
-- Investoren-Sektion** inkl. Pitchdeck
+- Gesichtserkennung direkt im Browser (`face-api.js`)
+- Twin-Matching-Simulation mit Dummy-Daten (via `faceMatcher`)
+- Newsletter-Formular
+- Social Media Links (LinkedIn, Instagram, X)
+- Investoren-Sektion inkl. Pitchdeck
 - Responsives Design mit CSS & Google Fonts
 
 Technologien
@@ -39,9 +42,13 @@ Technologien
 Nutzung / Entwicklung
 
 </header>
-Ich suche derzeit nach Partnern und/oder Co-Foundern mit Erfahrung in KI, App- und Business-Entwicklung, um das Wachstum von TwinFind-AI zu beschleunigen. Interessierte können sich gern mein Pitchdeck hier herunterladen: Pitchdeck herunterladen.
+
 <footer>
-
-
+    
+Ich suche derzeit nach Partnern und/ode
+Co-Foundern mit Erfahrung in KI, App- und Business-Entwicklung,
+um das Wachstum von TwinFindAI zu beschleunigen.
+Interessierte können sich gern mein Pitchdeck hier herunterladen:
+Pitchdeck herunterladen.
 
 </footer>
